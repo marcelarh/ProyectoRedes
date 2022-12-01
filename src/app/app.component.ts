@@ -1,27 +1,33 @@
-import { Component, AfterViewInit } from '@angular/core';
-// import * as L from 'leaflet';
+import { Component } from '@angular/core';
+import { Map, Marker, marker, tileLayer } from 'leaflet';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent /* implements AfterViewInit */{
-  // private map;
+export class AppComponent {
 
-  // private initMap(): void {
-  //   this.map = L.map('map', {
-  //     center: [ 39.8282, -98.5795 ],
-  //     zoom: 3
-  //   });
-  // }
+  title = 'ProyectoRedes'; 
 
+ 
+  ngAfterViewInit(): void {
 
+    const map = new Map('map').setView([23.685, -102.041], 13);
 
-  // ngAfterViewInit(): void {
-  //   this.initMap();
-  // }
+    tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    
+     const markerItem = marker([21.846430596051185, -102.31547934589416]).addTo(map).bindPopup("Casa Inge");
 
-
+     map.fitBounds([
+      [markerItem.getLatLng().lat, markerItem.getLatLng().lng]
+     ])
+    ;
+  }
+ 
 
 }
