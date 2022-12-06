@@ -1,0 +1,132 @@
+<div class="container-fluid">
+    <div class="card">
+      <div class="row">
+  
+        <div class="card">
+          <div class="col-sm mt-3 mb-5 pl-5 pr-5">
+            <form class="needs-validation" (submit)="save()">
+
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationTooltip02">Fecha ultima vista:</label>
+                    <input type="date" name="visto_ultima" [(ngModel)]="visto_ultima" class="form-control" id="validationTooltip02" required>
+                  </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="validationTooltip01">Nombre(s):</label>
+                  <input type="text" name="nombre" [(ngModel)]="nombre" class="form-control" id="validationTooltip01" required>
+                </div>
+              </div>
+
+    
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="validationTooltip02">Primer Apellido:</label>
+                  <input type="text" name="primape" [(ngModel)]="primape" class="form-control" id="validationTooltip02" required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="validationTooltip02">Segundo Apellido:</label>
+                  <input type="text" name="segape" [(ngModel)]="segape" class="form-control" id="validationTooltip02" required>
+                </div>
+              </div>
+
+    
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="validationTooltip02">Pais:</label>
+                  <input type="text" name="pais" [(ngModel)]="pais" class="form-control" id="validationTooltip02" required>
+                </div>
+    
+                <div class="col-md-6 mb-3">
+                  <label for="validationTooltip02">Estado:</label>
+                  <input type="text" name="estado" [(ngModel)]="estado" class="form-control" id="validationTooltip02" required>
+                </div>
+              </div>
+
+    
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationTooltip02">Clave Entidad:</label>
+                    <input type="text" name="claveEntidad" [(ngModel)]="claveEntidad" class="form-control" id="validationTooltip02" required>
+
+                  </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="validationTooltip02">Municipio:</label>
+                  <input type="text" name="municipio" [(ngModel)]="municipio" class="form-control" id="validationTooltip02" required>
+                </div>
+              </div>
+
+    
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationTooltip02">Nacionalidad:</label>
+                    <input type="text" name="nacionalidad" [(ngModel)]="nacionalidad" class="form-control" id="validationTooltip02" required>
+
+                  </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="validationTooltip02">Origen:</label>
+                  <input type="text" name="origen" [(ngModel)]="origen" class="form-control" id="validationTooltip02" required>
+                </div>
+              </div>
+
+    
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="validationTooltip02">Sexo:</label>
+                  <input type="text" name="sexo" [(ngModel)]="sexo" class="form-control" id="validationTooltip02" required>
+                </div>
+    
+                <div class="col-md-6 mb-3">
+                  <label for="validationTooltip02">Fecha de nacimiento:</label>
+                  <input type="date" name="fecha_nac" [(ngModel)]="fecha_nac" class="form-control" id="validationTooltip02" required>
+                </div>
+              </div>
+
+    
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationTooltip02">Autoridad responsable:</label>
+                    <input type="text" name="autoridad" [(ngModel)]="autoridad" class="form-control" id="validationTooltip02" required>
+
+                  </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="validationTooltip02">Latitud:</label>
+                  <input type="number" name="coordenadaX" [(ngModel)]="coordenadaX" class="form-control" id="validationTooltip02" required>
+                </div>
+    
+                <div class="col-md-6 mb-3">
+                  <label for="validationTooltip02">Longitud:</label>
+                  <input type="number" name="coordenadaY" [(ngModel)]="coordenadaY" class="form-control" id="validationTooltip02" required>
+                </div>
+              </div>
+    
+    
+    
+              <button class="btn btn-primary" type="submit" >Registrar Persona</button>
+            </form>
+          </div>
+        </div>
+  
+  
+  
+        <!-- MAPA -->
+  
+        <div class="col-sm">
+  
+          <div class="map-container">
+            <div class="map-frame">
+              <div id="map" ></div>
+            </div>
+          </div>
+          
+        </div>
+  
+  
+  
+      </div>
+    </div>
+  </div>
