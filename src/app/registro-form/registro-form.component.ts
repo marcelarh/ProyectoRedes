@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { mapToStyles } from '@popperjs/core/lib/modifiers/computeStyles';
 import { circleMarker, LatLng, Map, Marker, marker, tileLayer } from 'leaflet';
+import { persona } from '../Model/persona.model';
 import Swal from 'sweetalert2'
+import { ServicioApiService } from '../services/servicio-api.service';
 
 
 @Component({
@@ -12,6 +14,7 @@ import Swal from 'sweetalert2'
   styleUrls: ['./registro-form.component.css']
 })
 export class RegistroFormComponent {
+  PersonaVar : persona = new persona;
 
   nombre?: String;
   primape?: String;
@@ -31,9 +34,7 @@ export class RegistroFormComponent {
 
   bandera: Boolean = true;
 
-  constructor(){
-
-  }
+  constructor(private servicioApiService : ServicioApiService){}
 
 
 
@@ -106,6 +107,30 @@ export class RegistroFormComponent {
       this.coordenadaX &&
       this.coordenadaY
     ){
+      this.PersonaVar.nombre = this.nombre
+      this.PersonaVar.primape = this.primape
+      this.PersonaVar.segape = this.segape
+      this.PersonaVar.pais = this.pais
+      this.PersonaVar.estado = this.estado
+      this.PersonaVar.claveEntidad = this.claveEntidad
+      this.PersonaVar.municipio = this.municipio
+      this.PersonaVar.origen = this.origen
+      this.PersonaVar.nacionalidad = this.nacionalidad
+      this.PersonaVar.sexo = this.sexo
+      this.PersonaVar.fecha_nac = this.fecha_nac
+      this.PersonaVar.visto_ultima = this.visto_ultima
+      this.PersonaVar.coordenadaY = this.coordenadaY
+      this.PersonaVar.autoridad = this.autoridad
+      this.PersonaVar.coordenadaX = this.coordenadaX
+
+
+      this.servicioApiService.setDesaparecido(this.PersonaVar)
+
+
+
+
+
+
       Swal.fire({
         position: 'top-end',
         icon: 'success',

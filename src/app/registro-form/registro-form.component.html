@@ -7,12 +7,7 @@
             <form class="needs-validation" (submit)="save()">
 
               <div class="form-row">
-                <div class="col-md-6 mb-3">
-                    <label for="validationTooltip02">Fecha ultima vista:</label>
-                    <input type="date" name="visto_ultima" [(ngModel)]="visto_ultima" class="form-control" id="validationTooltip02" required>
-                  </div>
-
-                <div class="col-md-6 mb-3">
+                <div class="col-md-12 mb-3">
                   <label for="validationTooltip01">Nombre(s):</label>
                   <input type="text" name="nombre" [(ngModel)]="nombre" class="form-control" id="validationTooltip01" required>
                 </div>
@@ -90,17 +85,23 @@
                 <div class="col-md-6 mb-3">
                     <label for="validationTooltip02">Autoridad responsable:</label>
                     <input type="text" name="autoridad" [(ngModel)]="autoridad" class="form-control" id="validationTooltip02" required>
-
                   </div>
 
+                  <div class="col-md-6 mb-3">
+                    <label for="validationTooltip02">Fecha ultima vista:</label>
+                    <input type="date" name="visto_ultima" [(ngModel)]="visto_ultima" class="form-control" id="validationTooltip02" required>
+                  </div>
+              </div>
+
+              <div class="form-row">
                 <div class="col-md-6 mb-3">
                   <label for="validationTooltip02">Latitud:</label>
-                  <input type="number" name="coordenadaX" [(ngModel)]="coordenadaX" class="form-control" id="validationTooltip02" required>
+                  <input type="number" data-toggle="tooltip" title="Seleccione un punto en el mapa" disabled name="coordenadaX" [(ngModel)]="coordenadaX" class="form-control" id="validationTooltip02" required>
                 </div>
     
                 <div class="col-md-6 mb-3">
                   <label for="validationTooltip02">Longitud:</label>
-                  <input type="number" name="coordenadaY" [(ngModel)]="coordenadaY" class="form-control" id="validationTooltip02" required>
+                  <input type="number" data-toggle="tooltip" title="Seleccione un punto en el mapa" disabled name="coordenadaY" [(ngModel)]="coordenadaY" class="form-control" id="validationTooltip02" required>
                 </div>
               </div>
     
