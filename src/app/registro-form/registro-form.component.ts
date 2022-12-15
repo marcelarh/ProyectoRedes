@@ -41,7 +41,7 @@ export class RegistroFormComponent {
   ngAfterViewInit(): void {
     const map = new Map('map').setView([23.685, -102.041], 13);
 
-    //map.on('click', this.onMapClick);
+    
 
     tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
@@ -66,7 +66,12 @@ export class RegistroFormComponent {
             this.coordenadaX = e.latlng.lat
             this.coordenadaY = e.latlng.lng
             //marker(e.latlng).addTo(map).bindPopup(e.latlng.toString());
-            marker(e.latlng).addTo(map).bindPopup("Punto");
+            const markerItem = marker(e.latlng).addTo(map).bindPopup("Punto");
+
+            markerItem.on('dblclick', () => {
+              map.removeLayer(markerItem); 
+              this.bandera = true; 
+            });
           }else{
             Swal.fire({
               position: 'top-end',
