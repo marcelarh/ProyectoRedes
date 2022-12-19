@@ -83,30 +83,8 @@ export class RegistroFormComponent {
 
 
   save(){
-    Swal.fire({
-      title: 'Persona Agregada!',
-      text: 'La persona ha sido agregada a la base de datos con exito',
-      icon: 'success',
-      confirmButtonText: 'Cerrar'
-    })
 
-    if(
-      this.nombre &&
-      this.primape &&
-      this.segape &&
-      this.pais &&
-      this.estado &&
-      this.claveEntidad &&
-      this.municipio &&
-      this.origen &&
-      this.nacionalidad &&
-      this.sexo &&
-      this.fecha_nac &&
-      this.visto_ultima &&
-      this.autoridad &&
-      this.coordenadaX &&
-      this.coordenadaY
-    ){
+    if(this.nombre && this.primape && this.segape && this.pais && this.estado && this.claveEntidad && this.municipio && this.origen && this.nacionalidad && this.sexo && this.fecha_nac && this.visto_ultima && this.autoridad && this.coordenadaX && this.coordenadaY){
       this.PersonaVar.nombre = this.nombre
       this.PersonaVar.primape = this.primape
       this.PersonaVar.segape = this.segape
@@ -123,21 +101,38 @@ export class RegistroFormComponent {
       this.PersonaVar.autoridad = this.autoridad
       this.PersonaVar.coordenadaX = this.coordenadaX
 
+      const params = JSON.stringify({
+      "nombre": this.PersonaVar.nombre,
+      "primape": this.PersonaVar.primape,
+      "segape": this.PersonaVar.segape,
+      "pais": this.PersonaVar.pais,
+      "estado": this.PersonaVar.estado,
+      "claveEntidad": this.PersonaVar.claveEntidad,
+      "municipio": this.PersonaVar.municipio,
+      "origen": this.PersonaVar['origen'],
+      "nacionalidad": this.PersonaVar.nacionalidad,
+      "sexo": this.PersonaVar.sexo,
+      "fecha_nac": this.PersonaVar.fecha_nac,
+      "visto_ultima": this.PersonaVar.visto_ultima,
+      "autoridad": this.PersonaVar.autoridad,
+      "coordenadaX": this.PersonaVar.coordenadaX,
+      "coordenadaY": this.PersonaVar.coordenadaY
+    });
 
-      this.servicioApiService.setDesaparecido(this.PersonaVar)
+    console.log(params);
+
+    this.servicioApiService.createUser(this.PersonaVar).subscribe(data => {
+      console.log(data);
+    });
 
 
-
-
-
-
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Persona registrada correctamente',
-        showConfirmButton: false,
-        timer: 800
-      })
+      
+    Swal.fire({
+      title: 'Persona Agregada!',
+      text: 'La persona ha sido agregada a la base de datos con exito',
+      icon: 'success',
+      confirmButtonText: 'Cerrar'
+    })
       
     }else{
       Swal.fire({
@@ -148,10 +143,5 @@ export class RegistroFormComponent {
         timer: 800
       })
     }
-
-
-
   }
-
-
 }
